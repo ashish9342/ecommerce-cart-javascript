@@ -4,6 +4,8 @@ import text from "../configs/text";
 import CONFIG from "../configs/config";
 import products from "./components/products/products";
 import cart from "./components/cart/cart";
+import header from "./components/header/header";
+import Toast from "./components/toast/toast";
 
 const ecomm = {
   renderProducts: async () => {
@@ -20,7 +22,15 @@ const ecomm = {
     }
   },
   renderCart: () => {
+    header();
     cart();
+  },
+  renderToast: (title) => {
+    Toast(title);
+    // hide
+    setTimeout(function () {
+      document.getElementsByClassName("toast")[0].remove();
+    }, 1000);
   },
   addEventListener: () => {
     let removeCartItemButtons = document.getElementsByClassName("btn-danger");
@@ -66,6 +76,7 @@ const ecomm = {
     // console.log(discount);
     ecomm.addItemToCart(title, price, imageSrc, orgPrice);
     ecomm.updateCartTotal();
+    // show toast
   },
   addItemToCart: (title, price, imageSrc, orgPrice) => {
     let cartRow = document.createElement("div");
@@ -97,12 +108,10 @@ const ecomm = {
     cartRow
       .getElementsByClassName("cart-quantity-input")[0]
       .addEventListener("change", ecomm.quantityChanged);
+
+    ecomm.renderToast(title);
   },
-  updateDiscount: (cartRows) => {
-    // let discount = 0;
-    for (let i = 0; i < cartRows.length; i++) {}
-  },
-  updateTotalItems: (cartRows) => {
+  updateTotalItemsAndDiscount: (cartRows) => {
     let count = 0,
       discount = 0;
     for (let i = 0; i < cartRows.length; i++) {
@@ -138,7 +147,7 @@ const ecomm = {
 
       total = total + price * quantity;
     }
-    ecomm.updateTotalItems(cartRows);
+    ecomm.updateTotalItemsAndDiscount(cartRows);
     // ecomm.updateDiscount(cartRows);
     document.getElementsByClassName("cart-total-price")[0].innerText =
       "$" + total;

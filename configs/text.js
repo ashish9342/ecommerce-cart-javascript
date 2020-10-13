@@ -10,7 +10,9 @@ const text = {
   addToCart: "ADD TO CART",
   off: "% off",
   loading: "Loading....",
-  errorAPI: "There was some Error. Please try after sometime"
+  errorAPI: "There was some Error. Please try after sometime",
+  header: "All Items",
+  itemAdded: " has been added to Cart"
 };
 
 export default text;

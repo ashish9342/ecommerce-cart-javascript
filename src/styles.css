@@ -19,6 +19,11 @@ body {
   padding: 15px;
   border-radius: 5px;
 }
+header > h1 {
+  border-top: 1px solid #171616;
+  border-bottom: 1px solid #171616;
+  padding: 5px 15px;
+}
 
 #cart {
   width: 30%;
@@ -185,4 +190,15 @@ body {
 
 .img-holder {
   position: relative;
+}
+.toast {
+  position: absolute;
+  top: 50px;
+  padding: 10px;
+  z-index: 999;
+  background: green;
+  color: white;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2px;
 }
