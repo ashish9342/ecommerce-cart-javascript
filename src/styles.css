@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   margin: 0;
 }
-.container {
+#app {
   display: flex;
   flex-direction: row;
 }
@@ -152,8 +152,11 @@ body {
 }
 
 .cart-total {
-  margin-top: 10px;
-  margin-right: 10px;
+  border: 2px solid #cccccc;
+}
+.cart-total > p {
+  padding: 10px;
+  margin: 0;
 }
 
 .cart-total-title {
@@ -167,7 +170,9 @@ body {
   color: #333;
   font-size: 1.1em;
 }
-
+.bg-grey {
+  background-color: #eee;
+}
 .discount {
   position: absolute;
   background: green;
