@@ -1,2 +1,2 @@
 # ecommerce-cart-javascript
-Created with CodeSandbox
+Created with vanilla javascript
